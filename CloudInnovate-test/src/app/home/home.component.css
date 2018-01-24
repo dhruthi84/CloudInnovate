@@ -1,0 +1,18 @@
+	.tabHex {
+		width:100%;
+		max-width: 996px;
+		display:table;
+		margin:0px auto;
+	}
+	
+	.tabcell {
+		display:table-cell;
+		vertical-align:middle;
+	}
+	
+	.tabcell img {
+		width:100%;
+		max-width:160px;
+    }
+
+    

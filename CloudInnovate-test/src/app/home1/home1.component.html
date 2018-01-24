@@ -1,0 +1,144 @@
+<style>
+    a {
+        font-size: 20px;
+    }
+
+    .navbar {
+        position: relative;
+        min-height: 75px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        margin-bottom: 0px !important;
+        padding-top: 12px;
+    }
+
+    .navbar-default .navbar-nav>.active>a,
+    {
+        color: #fff;
+        border-bottom: 1px solid #cae1ff;
+    }
+
+    .navbar-default .navbar-nav>.active>a,
+    .navbar-default .navbar-nav>.active>a:focus,
+    .navbar-default .navbar-nav>.active>a:hover {
+        color: #fff;
+        /* border: 1px solid aliceblue; */
+        border-bottom: 1px solid #cae1ff;
+        background-color: #3B6CAA !important;
+    }
+
+    .navbar-default .navbar-nav>li>a {
+        color: #fff;
+        /* margin-right: 30px; */
+    }
+
+    .navbar-nav>li {
+        float: left;
+        /* margin-right: 30px; */
+    }
+
+    .navbar-default {
+        background-color: #3B6CAA;
+        border-color: #3B6CAA;
+        margin-right: -15px;
+    }
+
+    .header_style {
+        margin-right: -15px;
+        padding: 40px 0px 0px 40px;
+        background: url(assets/Banner.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 350px;
+    }
+
+    @font-face {
+        font-family: IBM-plex-sans-bold;
+        src: url('../IBMPlexSans/Opentype/IBMPlexSans-Bold-V01.1.otf') format('otf');
+    }
+</style>
+<div [ngBusy]="busy">
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+                <a class="navbar-brand" href="javascript:void(0)"><img src="assets/ibm.png" class="logo_style" /></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right" style="font-family: IBM-plex-sans-regular;">
+                    <li class="active"> <a href="javascript:void(0)" (click)="home()">Home</a></li>
+                    <li> <a href="javascript:void(0)" (click)="getdocuments()">Documentation</a></li>
+                    <li> <a href="javascript:void(0)" (click)="getreleasenotes()">Release Candidates</a></li>
+                    <li> <a href="https://cloudpsn.mybluemix.net/" target=”_blank”>SME Support</a></li>
+                    <li> <a href="javascript:void(0)" (click)="gettutorials()">Tutorials</a></li>
+                     <li> <a href="javascript:void(0)" (click)="getrfcdetails()">Request for Comments</a></li> 
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+    <!-- Header -->
+    <header class="header_style">
+        <h1 style="color:#1D3649;font-family:IBM-plex-sans-bold;font-size:55px;margin-bottom:0px;">Next Generation Toolkit</h1>
+        <h2 style="color:#1D3649;font-family:IBM-plex-sans-medium;margin-top:0px;font-size:33px;">For Cloud Migration and Modernization</h2>
+        <p style="color:#000000;font-family:IBM-plex-sans-light;">Accelerate the Journey to Cloud</p>
+        <button class="btn btn-default btn_style" (click)=getstarted() style="font-family: IBM-plex-sans-regular;">Get Started</button>
+        <button class="btn btn-default btn_style" (click)=downloadImages() style="font-family: IBM-plex-sans-regular;margin-left:5px;">Download Releases
+        </button>
+        <button class="btn btn-default btn_style_ryt" (click)=blueCat() style="font-family: IBM-plex-sans-regular;margin-right:30px;float:right;">Release Notes (BlueCAT)</button>
+         <button class="btn btn-default btn_style_ryt" (click)=getstartedbluecat() style="font-family: IBM-plex-sans-regular;float:right;margin-right:10px;">Get Started with BlueCAT
+        </button>
+    </header>
+
+    <!-- First Grid -->
+    <div class="container-fluid">
+        <div class="row clearfix" style="background-color:#f8f8f8;padding:40px 0px 40px 0px;font-family:IBM-plex-sans-regular;">
+            <div class="col-md-6 col-sm-12" [innerHTML]="this.gethomeonedata | trustHtml"></div>
+
+            <div class="col-md-4 col-sm-6" style="margin-top:2%;">
+                <img class="img-responsive center-block" src="assets/cloudinnovate_full.png" />
+            </div>
+
+            <div class="col-md-2 col-sm-6">
+                <div class="links" (click)="getdocuments()" [innerHTML]="this.getlinkdata | trustHtml"> </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Second Grid -->
+    <div class="container-fluid">
+        <div class="row clearfix" style="padding:20px 40px 20px 40px;background-color:#fff;font-family:IBM-plex-sans-regular;">
+            <div class="col-md-8">
+                <img class="img-responsive center-block" src="assets/home_btm.png" />
+            </div>
+            <div class="col-md-4" [innerHTML]="this.gethometwodata | trustHtml"></div>
+        </div>
+    </div>
+
+</div>
+<!-- busy close here -->
+
+<!-- Footer -->
+<footer style="background-color:#f4f5f5;padding:20px 0px 20px 40px;margin-right:-15px;" class="container-fluid">
+    <ul class="footer_menu">
+        <li><a href="https://www.ibm.com/contact/us/en/" target=”_blank”> Contact</a></li>
+        <li><a href="https://www.ibm.com/privacy/us/en/" target=”_blank”> Privacy</a></li>
+        <li><a href="https://www.ibm.com/legal/us/en/" target=”_blank”> Terms of use</a></li>
+        <li><a href="https://www.ibm.com/accessibility/us/en/" target=”_blank”> Accessibility</a></li>
+        <li><a href="javascript:void(0)" target=”_blank”> Cookie preferences</a></li>
+    </ul>
+</footer>

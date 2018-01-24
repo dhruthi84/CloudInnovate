@@ -1,0 +1,25 @@
+# applications:
+# - disk_quota: 1024M
+#   host: nextgentooling
+#   name: nextgentooling
+#   command: node server.js
+#   path: .
+#   domain: mybluemix.net
+#   instances: 1
+#   memory: 1024M
+#   env:
+#    hostname: nextgentooling.mybluemix.net
+
+applications:
+- disk_quota: 1024M
+  host: nextgentooling-dev
+  name: nextgentooling-dev
+  command: node server.js
+  path: .
+  domain: mybluemix.net
+  instances: 1
+  memory: 1024M
+  env:
+   hostname: nextgentooling-dev.mybluemix.net
+
+

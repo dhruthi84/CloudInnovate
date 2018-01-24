@@ -1,0 +1,332 @@
+<style>
+    /* a {
+        font-size: 20px !important;
+    } */
+
+    .navbar {
+        position: relative;
+        min-height: 66px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        margin-bottom: 0px !important;
+        padding-top: 12px;
+    }
+
+    .navbar-default .navbar-nav>.active>a,
+    {
+        color: #fff;
+        border-bottom: 1px solid #cae1ff;
+    }
+
+    .navbar-default .navbar-nav>.active>a,
+    .navbar-default .navbar-nav>.active>a:focus,
+    .navbar-default .navbar-nav>.active>a:hover {
+        color: #fff;
+        /* border: 1px solid aliceblue; */
+        border-bottom: 2px solid #fff;
+        background-color: #3B6CAA !important;
+    }
+
+    .navbar-default .navbar-nav>li>a {
+        color: #fff;
+        font-size: 20px !important;
+        /* margin-right: 30px; */
+    }
+
+    .navbar-nav>li {
+        float: left;
+        /* margin-right: 30px; */
+    }
+
+    .navbar-nav>li>a {
+        font-size: 14px !important;
+    }
+
+    .navbar-default {
+        background-color: #3B6CAA;
+        border-color: #3B6CAA;
+        margin-right: -15px;
+    }
+
+    .header_style {
+        margin-right: -15px;
+        padding: 20px 0px 20px 40px;
+        background: url(assets/Banner.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 180px;
+    }
+
+    li>em {
+        font-style: normal !important;
+    }
+</style>
+<div [ngBusy]="busy">
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+                <a class="navbar-brand" href="javascript:void(0)"><img src="assets/ibm.png" class="logo_style" /></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right" style="font-family: IBM-plex-sans-regular;">
+                    <li> <a href="javascript:void(0)" (click)="home()">Home</a></li>
+                    <li> <a href="javascript:void(0)" (click)="getdocuments()">Documentation</a></li>
+                    <li> <a href="javascript:void(0)" (click)="getreleasenotes()">Release Candidates</a></li>
+                    <li> <a href="https://cloudpsn.mybluemix.net/" target=”_blank”>SME Support</a></li>
+                    <li> <a href="javascript:void(0)" (click)="gettutorials()">Tutorials</a></li>
+                    <li class="active"> <a href="javascript:void(0)" (click)="getrfcdetails()">Request for Comments</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+    <!-- Header -->
+    <header class="header_style">
+        <p style="color:#1D3649;font-size:40px;margin-bottom:17px;font-family: 'IBM-plex-sans-bold';">Request for Comments (RFC)</p>
+        <p style="color:#1D3649;margin-top:0px;font-size:20px;margin-bottom:2px;font-family: 'IBM-plex-sans-regular';">Your views are important to us. Contribute your ideas, suggestions, or any thoughts
+            <button class="btn btn-default create_rfc_btn" (click)="opencreaterfc()">Create Your RFC</button></p>
+        <p style="color:#1D3649;margin-top:-14px;font-size:20px;font-family: 'IBM-plex-sans-regular';">to help us in buiilding NextGen Toolkit.</p>
+    </header>
+
+    <div class="container-fluid" style="padding-left:0px;padding-right:0px;">
+        <ul class="nav nav-tabs">
+            <li class="active" style="margin-left:5%;">
+                <a href="#1" data-toggle="tab">All RFC's</a>
+            </li>
+            <li><a href="#2" data-toggle="tab">My RFC's</a>
+            </li>
+            <li><a href="#3" style="border-bottom-color: 2px solid #3B6CAA;" data-toggle="tab">Create RFC</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane  active row" id="1" style="font-size:16px;">
+                <div class="row allrfc_table">
+                    <label for="show" class="col-md-6" style="padding-left:22px;font-weight:100;"> Show
+                         <select class="selectpicker">
+                            <option>All</option>
+                            <option>Published</option>
+                            <option>Board Review</option>
+                            <option>Development</option>
+                            <option>Retired</option>
+                        </select>
+                        </label>
+                    <div class="container col-md-6">
+                        <div class="input-group stylish-input-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <span class="input-group-addon">
+                        <button type="submit">
+                        <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>RFC ID</th>
+                            <!--<th>RFC Type</th>-->
+                            <th>Title</th>
+                            <th>Submitted by</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let rfc_data of rfc_list">
+                            <td>{{ rfc_data.rfc_id }}</td>
+                            <!--<td>{{ rfc_data.rfc_type }}</td>-->
+                            <td class="title_link">{{ rfc_data.rfc_title }}</td>
+                            <td class="submiited_text_color">{{ rfc_data.submitted_by }}</td>
+                            <td>{{ rfc_data.date }}</td>
+                            <td><button type="submit" class="btn btn-default" [ngClass]="{'red-class': rfc_data.status =='Retired','green-class':rfc_data.status =='Development' , 'blue-class':rfc_data.status =='Open'}">{{ rfc_data.status }}</button></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ////////////////////////////////////////////////////////////////////////////     My RFC tab    //////////////////////////////////////////////////////////////////////////-->
+
+            <div class="tab-pane" id="2">
+                <div class="row allrfc_table">
+                    <label for="show" class="col-md-6" style="padding-left:22px;font-weight:100;"> Show
+                         <select class="selectpicker">
+                            <option>All</option>
+                            <option>Published</option>
+                            <option>Board Review</option>
+                            <option>Development</option>
+                            <option>Retired</option>
+                            <option>Draft</option>
+                        </select>
+                        </label>
+                    <div class="container col-md-6">
+                        <div class="input-group stylish-input-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                            <span class="input-group-addon">
+                        <button type="submit">
+                        <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>RFC ID</th>
+                            <th>RFC Type</th>
+                            <th>Title</th>
+                            <th>Submitted by</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>RF2381</td>
+                            <td></td>
+                            <td class="title_link">Lorem ipsum dolor sit amet</td>
+                            <td class="submiited_text_color">Marian Vrbican</td>
+                            <td>11 Jan 18</td>
+                            <td> <button type="submit" class="btn btn-default" style="color: yellow;background-color: #fff;border-color: yellow;width: 50%;height: 26px;padding:0px;">Draft</button></td>
+                        </tr>
+                        <tr>
+                            <td>RF2382</td>
+                            <td></td>
+                            <td class="title_link">Lorem ipsum dolor sit amet consectetuer</td>
+                            <td class="submiited_text_color">Marian Vrbican</td>
+                            <td>11 Jan 18</td>
+                            <td> <button type="submit" class="btn btn-default" style="color: blue;background-color: #fff;border-color: blue;width: 50%;height: 26px;padding:0px;">Published</button></td>
+                        </tr>
+                        <tr>
+                            <td>RF2383</td>
+                            <td></td>
+                            <td class="title_link">Lorem ipsum dolor sit amet</td>
+                            <td class="submiited_text_color">Peter</td>
+                            <td>11 Jan 18</td>
+                            <td> <button type="submit" class="btn btn-default" style="color: cyan;background-color: #fff;border-color: cyan;width: 50%;height: 26px;padding:0px;">Board Review</button></td>
+                        </tr>
+                        <tr>
+                            <td>RF2384</td>
+                            <td></td>
+                            <td class="title_link">Lorem ipsum dolor sit amet consectetuer elit</td>
+                            <td class="submiited_text_color">Marian Vrbican</td>
+                            <td>11 Jan 18</td>
+                            <td> <button type="submit" class="btn btn-default" style="color: green;background-color: #fff;border-color: green;width: 50%;height: 26px;padding:0px;">Development</button></td>
+                        </tr>
+                        <tr>
+                            <td>RF2385</td>
+                            <td></td>
+                            <td class="title_link">Lorem ipsum dolor sit amet</td>
+                            <td class="submiited_text_color">Marian Vrbican</td>
+                            <td>11 Jan 18</td>
+                            <td> <button type="submit" class="btn btn-default" style="color: red;background-color: #fff;border-color: red;width: 50%;height: 26px;padding:0px;">Retired</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane" id="3">
+                <br/><br/><br/>
+                <p class="form_header">“Great ideas come from anyone at any time”.</p>
+                <br/>
+                <!--<form class="rfc_form" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>-->
+                <form class="rfc_form" #f="ngForm" (ngSubmit)="submit_rfc(f)" novalidate>
+                    <div class="col-md-9" style="font-size:16px;">
+
+
+                        <div class="form-group">
+                            <label for="title">RFC Title</label>
+                            <input type="input" class="form-control" id="title" name="title" ngModel>
+                        </div>
+
+                        <br/>
+                        <div class="form-group">
+                            <label for="type">File Name</label>
+                            <input type="input" class="form-control" id="git_fileName" name="git_fileName" ngModel>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="type">File Content</label>
+                            <input type="input" class="form-control" id="git_content" name="git_content" ngModel>
+
+                        </div>
+                        <br/>
+                        <div class="form-group">
+                            <label for="attach"> Attach .md file </label>
+                            <!--<input type="file" class="form-control" id="file" name="file" ngModel>-->
+                            <!-- <input #fileInput type="file" name="pic" accept="*">-->
+                            <input type="file" id="btnUpload" value="Upload" (change)="fileChange($event)" class="upload" />
+                        </div>
+                        <!-- <button type="submit" class="btn btn-default rfc_form_attach_btn">Attach
+                        </button>-->
+
+                    </div>
+
+                    <div class="col-md-3" style="font-size:16px;">
+                        <div class="rfc_second_sec">
+                            <p style="color:#333; font-family: 'IBM-plex-sans-bold';">Idea Owner</p>
+                            <p style=" font-family: 'IBM-plex-sans-regular';color:#4178BE">Marian Vrbican</p>
+                            <p style="color:#333; font-family: 'IBM-plex-sans-bold';margin-top:17%;">Date</p>
+                            <p style="color:#333; font-family: 'IBM-plex-sans-regular';">11 Jan 2018</p>
+                            <br/>
+                            <button type="submit" class="btn btn-default rfc_form_save_btn">Save as draft</button>
+                            <br/>
+                            <button type="submit" class="btn btn-default rfc_form_submit_btn">Submit</button>
+                        </div>
+
+
+                        <!--			
+					 
+      <input name="first" ngModel required #first="ngModel">
+      <input name="last" ngModel>
+      <button>Submit</button>
+    </form>
+    
+    <p>First name value: {{ first.value }}</p>
+    <p>First name valid: {{ first.valid }}</p>
+    <p>Form value: {{ f.value | json }}</p>
+    <p>Form valid: {{ f.valid }}</p>
+	
+	-->
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- busy close here -->
+</div>
+
+<!-- Footer -->
+<footer style="background-color:#f4f5f5;padding:20px 0px 20px 40px;margin-right:-15px;" class="container-fluid">
+    <ul class="footer_menu">
+        <li><a href="https://www.ibm.com/contact/us/en/" target=”_blank”> Contact</a></li>
+        <li><a href="https://www.ibm.com/privacy/us/en/" target=”_blank”> Privacy</a></li>
+        <li><a href="https://www.ibm.com/legal/us/en/" target=”_blank”> Terms of use</a></li>
+        <li><a href="https://www.ibm.com/accessibility/us/en/" target=”_blank”> Accessibility</a></li>
+        <li><a href="javascript:void(0)" target=”_blank”> Cookie preferences</a></li>
+    </ul>
+</footer>

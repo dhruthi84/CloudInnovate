@@ -1,0 +1,219 @@
+.navbar-brand {
+    height: 50px;
+    padding: 0px 15px;
+}
+.logo_style{
+    height: 35px;
+    padding-left: 30px;
+    margin-top: 4px;
+}
+/* .tabs_style .nav-tabs > li.active > a{
+    color: #555;
+    cursor: default;
+    border-bottom-color: 2px solid #3B6CAA;
+} */
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+color: #000;
+cursor: pointer;
+background-color: none;
+border: none;
+border-bottom: 4px solid blue !important;
+font-weight:bold;
+}
+.nav > li > a {
+    font-size: 16px !important;
+    color:#000;
+}
+.tab-content{
+    margin-left: 6%;
+margin-right: 7%;
+}
+.rfc_form{
+    /* border:1px solid grey; */
+    width:90%;
+     margin-bottom:18%; 
+      font-size:16px;
+      color:#333;
+}
+.form_header{
+    font-size:40px;
+    color:#333;
+    font-family: 'IBM-plex-sans-light' !important;
+}
+.desc_header{
+    font-size:30px;
+    color:#333;
+    font-family: 'IBM-plex-sans-regular' !important; 
+}
+.form-control{
+    border-radius: 0px;
+}
+.rfc_form_attach_btn{
+    color: #4178BE;
+    background-color: #fff;
+    border: 1px solid #4178BE;
+    border-radius: 0px;
+    margin-top: 0%;
+    width: 12%;
+    height: 40px;
+    font-size: 16px;
+    font-family: 'IBM-plex-sans-regular';
+    cursor: pointer;
+}
+.rfc_second_sec{
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+.allrfc_one{
+    margin-left: 3%;
+    width: 80%;
+}
+.create_rfc_btn{
+    color: #333;
+    background-color: transparent;
+    border-color: #333;
+    border-radius: 0px;
+    height: 45px;
+    font-size: 18px;
+    margin-left: 4%;
+    font-family: 'IBM-plex-sans-regular';
+    cursor: pointer;
+}
+.rfc_form_submit_btn{
+    color: #fff;
+    background-color: #4178BE;
+    border: 1px solid #4178BE;
+    border-radius: 0px;
+    margin-top: 13%;
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    font-family: 'IBM-plex-sans-regular';
+    cursor: pointer;
+}
+.postcomment{
+    color: #fff;
+    background-color: #4178BE;
+    border: 1px solid #4178BE;
+    border-radius: 0px;
+    margin-top: 2%;
+    float:right;
+    height: 40px;
+    font-size: 16px;
+    font-family: 'IBM-plex-sans-regular';
+    cursor: pointer;
+}
+.rfc_form_save_btn{
+    color: #4178BE;
+    background-color: #fff;
+    border: 1px solid #4178BE;
+    border-radius: 0px;
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    font-family: 'IBM-plex-sans-regular';
+    cursor: pointer;
+    margin-top:16%;
+}
+
+/* ///////////table///////// */
+.tab-content[_ngcontent-c1] {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 8%;
+}
+.table > tbody > tr > td{
+    line-height: 2.429;
+    border-top: 1px solid #333;
+}
+.table > tbody {
+    font-family:'IBM-plex-sans-regular';
+}
+.table > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 1px solid #333;
+}
+.allrfc_table{
+    margin-top: 4%;
+margin-bottom: 5%;
+font-family: 'IBM-plex-sans-light';
+}
+.submiited_text_color{
+    color:#4178BE !important;
+}
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+.stylish-input-group{
+    width: 30%;
+    float: right;
+}
+.selectpicker{
+    margin-left: 4px;
+    height: 34px;
+    cursor: pointer;
+    /* width: 100%; */
+}
+.red-class{
+    color: red !important;
+    background-color: #fff;
+    border-color: red !important;
+    width: 100%;
+    height: 26px;
+    padding:0px;
+}
+.green-class{
+    color: darkgreen !important;
+    background-color: #fff;
+    border-color: darkgreen !important;
+    width: 100%;
+    height: 26px;
+    padding:0px;
+}
+.blue-class{
+    color: #4178BE !important;
+    background-color: #fff;
+    border-color: #4178BE !important;
+    width: 100%;
+    height: 26px;
+    padding:0px;
+}
+.title_link{
+    cursor: pointer;
+    text-decoration: underline;
+}
+/* Footer styling starts here */
+.footer_menu{
+    list-style: none;
+    padding:0px;
+    margin:0px;
+}
+.footer_menu li{
+    display: inline-block;
+    vertical-align: top;
+    padding:6px 40px 6px 6px;
+}
+.footer_menu li +li{
+    margin-left:7px;
+}
+.footer_menu li a{
+    text-decoration: none;
+    color:#231f20;
+    transition: all ease 0.6s;
+    display: block;
+    font-size:16px;
+    font-family: 'IBM-plex-sans-regular';
+}
+.footer_menu li a:hover{
+    color:#231f20;
+}
