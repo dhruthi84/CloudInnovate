@@ -60,8 +60,8 @@ console.log("===req=======",req);
                 //resp.send('<html><body>'+dn+dn1+html+'</body></html>');
 				//localStorage.setItem('jira_data',data)
 				
-				var unam = 'Dhruthi';
-var password = 'Dhruthi';
+				var unam = 'xxxx';
+var password = 'xxxx';
 var buffer = new Buffer(unam + ':' + password);
 var base64String = buffer.toString('base64');
 var authorization = 'Basic ' + base64String ;
@@ -69,12 +69,12 @@ var projectname = "NEX";
 var jiraurl = 'https://gbsjiratest.in.edst.ibm.com';
 var JIRA_TIMEOUT = 80000;
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-var assignee = 'dhusubra@in.ibm.com';
+var assignee = 'example@in.ibm.com';
 var statustype = 'PUBLISH';
 var pid = '13921';
 var issuename = 'api_issue';
 var issuetypeid = '10700';
-adminName = 'Dhruthi';
+adminName = 'xxxx';
 var syncRequest = require('sync-request');
 var issuekey = "NEX-13";
 var issueid;
